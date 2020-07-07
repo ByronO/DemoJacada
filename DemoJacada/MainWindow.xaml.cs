@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,9 +22,29 @@ namespace DemoJacada
     /// </summary>
     public partial class MainWindow : Window
     {
+       
+
         public MainWindow()
         {
             InitializeComponent();
+            loadURL();
+        }
+        
+
+        private void loadURL()
+        {
+            JacadaBrowser.Source = new Uri("https://vivr.io/qz37X91");
+            JacadaBrowser.Visibility = Visibility.Hidden;          
+            
+        }
+
+        public void btnZoom_Click(object sender, RoutedEventArgs e) {            
+            var wb = (dynamic)JacadaBrowser.GetType().GetField("_axIWebBrowser2",
+              BindingFlags.Instance | BindingFlags.NonPublic)
+              .GetValue(JacadaBrowser);
+
+            wb.ExecWB(63, 2, 120, IntPtr.Zero);
+            JacadaBrowser.Visibility = Visibility.Visible;
         }
     }
 }

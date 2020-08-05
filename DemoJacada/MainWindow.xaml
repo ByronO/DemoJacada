@@ -7,24 +7,18 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid Margin="10,42,0,0">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="38*"/>
-            <ColumnDefinition Width="353*"/>
-        </Grid.ColumnDefinitions>
-        <Border Grid.ColumnSpan="2">
+      
+        <Border Grid.ColumnSpan="3">
             <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="31*"/>
-                    <ColumnDefinition Width="230*"/>
-                </Grid.ColumnDefinitions>
-                <Button x:Name="abrir" Content="abrir" HorizontalAlignment="Left" Margin="64,-30,0,388" Click="abrir_Click" Height="19" VerticalAlignment="Bottom" Width="108" Grid.Column="1"/>
-                <Button x:Name="cerrar" Content="cerrar" HorizontalAlignment="Left" Margin="213,-30,0,388" Click="cerrar_Click" Height="19" VerticalAlignment="Bottom" Width="108" Grid.Column="1"/>
-
+                <Button x:Name="abrir" Content="abrir" HorizontalAlignment="Left" Margin="204,0,0,335" Click="abrir_Click" Height="19" VerticalAlignment="Bottom" Width="108"/>
+                <Button x:Name="cerrar" Content="cerrar" HorizontalAlignment="Left" Margin="323,0,0,335" Click="cerrar_Click" Height="19" VerticalAlignment="Bottom" Width="108"/>
+                <TextBox x:Name="txtUrl"  HorizontalAlignment="Left" Margin="10,0,0,335"  Height="19" VerticalAlignment="Bottom" Width="183"/>
             </Grid>
         </Border>
-        <Border Margin="-10,0,0,0"  Grid.ColumnSpan="2">
-            <WebBrowser  Name="JacadaBrowser" Margin="122,38,30,10" />
+        <Border Margin="-10,17,0,0"  Grid.ColumnSpan="3">
+            <Grid Margin="-10,69,0,0" x:Name="JacadaGrid" Grid.ColumnSpan="2">
 
+            </Grid>
         </Border>
     </Grid>
 </Window>

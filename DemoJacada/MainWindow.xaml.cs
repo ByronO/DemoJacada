@@ -4,24 +4,25 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Navigation;
-using WebBrowser = System.Windows.Controls.WebBrowser;
+
 
 namespace DemoJacada
 {
 
     public partial class MainWindow : Window
     {
-        private WebBrowser webBrowser;
+        private System.Windows.Controls.WebBrowser webBrowser;
 
         public MainWindow()
         {
             InitializeComponent();
-           
+            this.webBrowser = new System.Windows.Controls.WebBrowser();
            
         }
         private void abrir_Click(object sender, RoutedEventArgs e)
         {
-            WebBrowser wb = new WebBrowser();
+            this.webBrowser.Dispose();
+            System.Windows.Controls.WebBrowser wb = new System.Windows.Controls.WebBrowser();
             wb.Margin = new Thickness(122, 38, 30, 10);
             wb.Source = new Uri(txtUrl.Text);    //https://vivr.io/qz37X91
             wb.Visibility = Visibility.Visible;
